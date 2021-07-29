@@ -2,19 +2,13 @@
   <v-app>
     <v-main>
       <v-container>
-        <router-view/>
-        <v-dialog
-          v-model="loading.estado"
-          hide-overlay
-          persistent
-          width="300"
-        >
-          <v-card
-            :color="loading.color"
-            dark
-          >
+        <router-view />
+        <v-dialog v-model="loading.estado" hide-overlay persistent width="300">
+          <v-card :color="loading.color" dark>
             <v-card-text>
-              {{loading.titulo}}
+              <p class="text-xs-center">
+                {{ loading.titulo }}
+              </p>
               <v-progress-linear
                 indeterminate
                 color="white"
@@ -29,18 +23,16 @@
 </template>
 
 <script>
-
 import { mapState } from "vuex";
 
-
 export default {
-  name: 'App',
+  name: "App",
 
   data: () => ({
     //
   }),
-  computed:{
-    ...mapState(['loading'])
-  }
+  computed: {
+    ...mapState(["loading"]),
+  },
 };
 </script>
